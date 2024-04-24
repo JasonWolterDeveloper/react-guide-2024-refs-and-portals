@@ -1,17 +1,18 @@
 import { useState, useRef } from "react";
 
 export default function Player() {
-  const playerName = useRef()
-  const [enteredPlayerName, setEnteredPlayerName] = useState('')
+  const playerName = useRef();
+  const [enteredPlayerName, setEnteredPlayerName] = useState('');
 
   const clickHandler = () => {
-    setEnteredPlayerName(playerName.current.value)
+    setEnteredPlayerName(playerName.current.value);
+    playerName.current.value = '';
   }
 
-  let playerNameComponent = <h2>Welcome unknown entity</h2>
+  let playerNameComponent = <h2>Welcome unknown entity</h2>;
 
   if (enteredPlayerName !== '') {
-    playerNameComponent = <h2>Welcome {enteredPlayerName}</h2>
+    playerNameComponent = <h2>Welcome {enteredPlayerName}</h2>;
   }
 
   return (
@@ -25,4 +26,4 @@ export default function Player() {
       </p>
     </section>
   );
-}
+};
